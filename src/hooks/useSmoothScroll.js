@@ -36,17 +36,17 @@ export const useSmoothScroll = (options = {}) => {
       return;
     }
 
-    // Heavy, deliberate easeOutQuart curve
+    // Snappy, smooth easeOutQuart curve with responsive momentum
     const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
 
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 0.95,
       easing: easeOutQuart,
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 1.0,
-      touchMultiplier: 1.5,
+      wheelMultiplier: 1.3,
+      touchMultiplier: 1.8,
       autoRaf: false, // Strictly disable internal Lenis RAF loop
       ...options,
     });

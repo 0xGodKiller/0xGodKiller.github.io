@@ -23,6 +23,8 @@ import useSmoothScroll from './hooks/useSmoothScroll';
  * - Tactical Master Footer
  */
 export function App() {
+  const DEVELOPER_NAME = "AVINASH CHOWDARY";
+
   // Initialize unified Lenis smooth scroll engine driven directly through GSAP ticker
   useSmoothScroll();
 
@@ -76,7 +78,7 @@ export function App() {
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <span className="inline-block w-2 h-2 bg-pure-white animate-pulse" />
-            <span className="font-bold tracking-wider text-pure-white">NEIL_SHAH // CORE_SYS</span>
+            <span className="font-bold tracking-wider text-pure-white">{DEVELOPER_NAME.replace(/\s+/g, '_')} // CORE_SYS</span>
           </div>
           <span className="text-neutral-600 hidden sm:inline">::</span>
           <span className="text-neutral-400 hidden sm:inline text-[11px]">STATUS: OPERATIONAL</span>
@@ -112,7 +114,7 @@ export function App() {
 
       {/* 1. Hero Section (100vh Pinned Disintegration & Telemetry) */}
       <HeroSection 
-        name="NEIL SHAH"
+        name={DEVELOPER_NAME}
         subtitle="Software Engineer // Systems & Reliability // Interactive Mechanics"
         onContactClick={() => scrollToSection('contact')}
       />

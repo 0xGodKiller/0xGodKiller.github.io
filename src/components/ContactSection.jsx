@@ -29,7 +29,11 @@ gsap.registerPlugin(ScrollTrigger);
  * - Accessibility: Instant plain appearance & flash suppression under prefers-reduced-motion.
  * - Plain-text footer nodes for GITHUB, LINKEDIN, and EMAIL.
  */
-export const ContactSection = () => {
+export const ContactSection = ({
+  email = "nagasainanduri@gmail.com",
+  githubUrl = "https://github.com/0xGodKiller",
+  linkedinUrl = "https://linkedin.com",
+}) => {
   const { prefersReducedMotion } = useDeviceCapabilities();
   const sectionRef = useRef(null);
   const terminalBoxRef = useRef(null);
@@ -360,7 +364,7 @@ export const ContactSection = () => {
 
           <div className="flex flex-wrap items-center justify-center gap-6 text-neutral-400">
             <a
-              href="https://github.com/0xraiven"
+              href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               data-cursor="interactive"
@@ -372,7 +376,7 @@ export const ContactSection = () => {
             </a>
 
             <a
-              href="https://linkedin.com"
+              href={linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
               data-cursor="interactive"
@@ -384,13 +388,13 @@ export const ContactSection = () => {
             </a>
 
             <a
-              href="mailto:contact@neilshah.dev"
+              href={`mailto:${email}`}
               data-cursor="interactive"
               data-cursor-text="SEND_MAIL"
               className="hover:text-pure-white transition-colors flex items-center gap-1.5"
             >
               <Mail size={13} />
-              <span>[EMAIL: contact@neilshah.dev]</span>
+              <span>[EMAIL: {email}]</span>
             </a>
           </div>
 

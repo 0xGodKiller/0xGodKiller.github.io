@@ -329,7 +329,7 @@ export const HeroSection = ({
         {/* Oversized Ultra-Bold Headline with Hardware-Accelerated Particle Canvas Layer */}
         <div
           ref={headlineRef}
-          className="relative inline-block my-2"
+          className="relative inline-block my-2 max-w-full"
         >
           {/* Hardware-Accelerated Canvas Particle Pool (Zero DOM overhead) */}
           <canvas
@@ -339,14 +339,20 @@ export const HeroSection = ({
           />
 
           {/* Primary Split Character Headline Text */}
-          <h1 className="text-6xl sm:text-8xl md:text-9xl font-extrabold tracking-tighter uppercase text-pure-white leading-none">
-            {name.split('').map((char, index) => (
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter uppercase text-pure-white leading-none flex flex-wrap justify-center gap-x-4 sm:gap-x-6 gap-y-2">
+            {name.trim().split(/\s+/).map((word, wordIndex) => (
               <span
-                key={index}
-                className="headline-char inline-block gpu-accelerate"
-                style={{ display: char === ' ' ? 'inline' : 'inline-block' }}
+                key={wordIndex}
+                className="inline-block whitespace-nowrap"
               >
-                {char === ' ' ? '\u00A0' : char}
+                {word.split('').map((char, charIndex) => (
+                  <span
+                    key={charIndex}
+                    className="headline-char inline-block gpu-accelerate"
+                  >
+                    {char}
+                  </span>
+                ))}
               </span>
             ))}
           </h1>
