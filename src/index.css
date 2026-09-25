@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    background-color: #0a0a0a;
+    color: #f5f5f5;
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Replace OS cursor only on fine pointer devices without reduced motion */
+  @media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    *, *::before, *::after {
+      cursor: none !important;
+    }
+  }
+
+  /* Explicitly preserve native OS cursor on touch / coarse pointer devices */
+  @media (pointer: coarse), (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      cursor: auto !important;
+    }
+  }
+
+  /* Custom deliberate scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #262626;
+    border-radius: 0px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #f5f5f5;
+  }
+}
+
+/* Compositor thread acceleration & hardware layer isolation utilities */
+.gpu-accelerate {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.gpu-layer {
+  will-change: transform, opacity;
+}
+
+.gpu-idle {
+  will-change: auto !important;
+}
+
+/* Fixed scanline overlay: subtle 2px horizontal repeating pattern with mix-blend-mode: overlay, 3% opacity */
+.scanline-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9990;
+  opacity: 0.03;
+  mix-blend-mode: overlay;
+  background: repeating-linear-gradient(
+    to bottom,
+    #ffffff 0px,
+    #ffffff 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+/* Subtle vignette around viewport edges */
+.vignette-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9980;
+  background: radial-gradient(circle at 50% 50%, transparent 65%, rgba(0, 0, 0, 0.75) 100%);
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" class="bg-pure-black text-pure-white antialiased">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2'><path d='M12 2v20M2 12h20'/></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TACTICAL_SYSTEM // MONOCHROME INTERFACE</title>
+    <meta name="description" content="Modern high-precision monochrome interface featuring 2D coordinate grid, custom reticle cursor, and deliberate Lenis smooth scroll momentum." />
+    
+    <!-- Optimized Font Loading Pipeline: Preconnect & DNS-Prefetch -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Subsetting typography to Latin character ranges with font-display: swap to eliminate FOIT (<40KB) -->
+    <link 
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap&subset=latin" 
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-pure-black text-pure-white overflow-x-hidden selection:bg-pure-white selection:text-pure-black">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
